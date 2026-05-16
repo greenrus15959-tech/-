@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ДУША — Татуировка с душой и смыслом</title>
-  <meta name="description" content="Тату-мастер Дмитрий Вселенский. Индивидуальный подход, работа с нуля, разные стили. Онлайн-запись.">
+  <title>ДУША — Студия</title>
+  <meta name="description" content="Студия ДУША — татуировка и массаж. Дмитрий Вселенский.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -12,651 +12,137 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg:       #171717;
-      --surface:  #1f1f1f;
-      --border:   #2e2e2e;
-      --text:     #f0f0f0;
-      --muted:    #888;
-      --accent:   #c8a050;
-      --accent-h: #d4ae64;
+      --bg:      #171717;
+      --surface: #1f1f1f;
+      --border:  #2e2e2e;
+      --text:    #f0f0f0;
+      --muted:   #888;
+      --accent:  #c8a050;
+      --accent-h:#d4ae64;
     }
-
-    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
       color: var(--text);
       font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-
-    img { display: block; max-width: 100%; }
-    a   { color: inherit; text-decoration: none; }
-
-    /* ── НАВИГАЦИЯ ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      padding: 18px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background .3s;
-    }
-    nav.scrolled {
-      background: rgba(23, 23, 23, .95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 12px;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .nav-burger span { display: block; width: 24px; height: 1.5px; background: var(--text); transition: .3s; }
-
-    /* ── ГЕРОЙ ── */
-    #hero {
-      position: relative;
-      height: 100svh;
-      min-height: 600px;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 48px 32px;
-      /* Замени на свою фотографию: background-image: url('images/hero.jpg'); */
-      background: linear-gradient(160deg, #2a2520 0%, #0f0f0f 100%);
-      background-size: cover;
-      background-position: center;
-      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
     }
-    #hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,.15) 60%, transparent 100%);
-    }
-    .hero-content { position: relative; z-index: 1; }
-    .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(64px, 14vw, 120px);
-      line-height: 1;
-      letter-spacing: .04em;
-    }
-    .hero-sub {
-      font-size: clamp(11px, 1.5vw, 14px);
-      letter-spacing: .35em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.5);
-      margin-top: 6px;
-      margin-bottom: 40px;
-    }
-    .hero-buttons { display: flex; flex-direction: column; gap: 12px; }
-    .btn-primary {
-      display: inline-block;
-      padding: 18px 32px;
-      background: var(--accent);
-      color: #111;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      text-align: center;
-      border: none;
-      cursor: pointer;
-      transition: background .2s;
-    }
-    .btn-primary:hover { background: var(--accent-h); }
-    .btn-outline {
-      display: inline-block;
-      padding: 17px 32px;
-      background: transparent;
-      color: var(--text);
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,.3);
-      cursor: pointer;
-      transition: border-color .2s, color .2s;
-    }
-    .btn-outline:hover { border-color: var(--text); }
 
-    /* ── О МАСТЕРЕ ── */
-    #about {
-      padding: 80px 32px;
-      background: var(--surface);
-    }
-    .about-label {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(72px, 18vw, 160px);
-      line-height: 1;
-      color: rgba(255,255,255,.04);
-      letter-spacing: .05em;
-      position: absolute;
-      pointer-events: none;
-      user-select: none;
-    }
-    .about-inner {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .about-text { display: flex; flex-direction: column; justify-content: center; }
-    .about-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(32px, 6vw, 52px);
-      letter-spacing: .06em;
-      line-height: 1.1;
-      margin-bottom: 24px;
-    }
-    .about-name span { display: block; color: var(--muted); font-size: .55em; letter-spacing: .25em; margin-bottom: 4px; }
-    .about-desc { color: rgba(240,240,240,.7); font-size: 15px; line-height: 1.8; }
-    .about-stats {
-      display: flex;
-      gap: 40px;
-      margin-top: 40px;
-    }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 52px;
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 10vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: 0.3em;
       color: var(--accent);
-      line-height: 1;
-    }
-    .stat-label { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
-    .about-photo {
-      aspect-ratio: 3/4;
-      background: #2a2a2a;
-      overflow: hidden;
-      max-width: 360px;
-      width: 100%;
-      /* Замени: <img src="images/dmitry.jpg" alt="Дмитрий"> */
-    }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* ── РАБОТЫ (слайдер) ── */
-    #portfolio {
-      padding: 80px 0;
-    }
-    .section-header {
-      padding: 0 32px;
-      margin-bottom: 40px;
-    }
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(36px, 6vw, 56px);
-      letter-spacing: .06em;
-    }
-    .section-sub {
-      font-size: 13px;
-      color: var(--muted);
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-    .slider-wrap {
-      position: relative;
-      overflow: hidden;
-    }
-    .slider-track {
-      display: flex;
-      gap: 16px;
-      padding: 0 32px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-    .slider-track::-webkit-scrollbar { display: none; }
-    .slide {
-      flex: 0 0 calc(50% - 8px);
-      scroll-snap-align: start;
-      aspect-ratio: 3/4;
-      background: var(--surface);
-      overflow: hidden;
-      /* Добавь: <img src="images/work-1.jpg"> */
-    }
-    .slide img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
-    .slide:hover img { transform: scale(1.04); }
-    .slide-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 32px;
-      color: var(--border);
-      letter-spacing: .1em;
-    }
-
-    /* ── FAQ ── */
-    #faq {
-      padding: 80px 32px;
-      background: var(--surface);
-    }
-    .faq-list {
-      max-width: 800px;
-      margin: 40px auto 0;
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-    .faq-q {
-      width: 100%;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 400;
-      text-align: left;
-      padding: 22px 0;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      line-height: 1.4;
-      transition: color .2s;
-    }
-    .faq-q:hover { color: var(--accent); }
-    .faq-icon {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      position: relative;
-    }
-    .faq-icon::before, .faq-icon::after {
-      content: '';
-      position: absolute;
-      background: currentColor;
-      transition: transform .3s, opacity .3s;
-    }
-    .faq-icon::before { width: 12px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-    .faq-icon::after  { width: 1px; height: 12px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-    .faq-item.open .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); opacity: 0; }
-    .faq-a {
-      font-size: 14px;
-      color: rgba(240,240,240,.65);
-      line-height: 1.8;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .35s ease, padding .35s;
-    }
-    .faq-item.open .faq-a {
-      max-height: 300px;
-      padding-bottom: 22px;
-    }
-
-    /* ── ЗАПИСЬ ── */
-    #booking {
-      padding: 80px 32px;
+      margin-bottom: 0.2em;
       text-align: center;
     }
-    .booking-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(40px, 8vw, 72px);
-      letter-spacing: .05em;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-    .booking-sub {
-      font-size: 14px;
+
+    .tagline {
+      font-size: clamp(0.65rem, 2vw, 0.85rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
       color: var(--muted);
-      max-width: 440px;
-      margin: 0 auto 40px;
+      margin-bottom: clamp(2.5rem, 7vh, 4.5rem);
+      text-align: center;
     }
 
-    /* ── КОНТАКТЫ / ФУТЕР ── */
-    footer {
-      padding: 48px 32px;
-      border-top: 1px solid var(--border);
+    .buttons {
       display: flex;
       flex-direction: column;
-      gap: 32px;
-    }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: .12em;
-    }
-    .footer-logo span {
-      display: block;
-      font-size: 10px;
-      letter-spacing: .3em;
-      font-weight: 400;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-    .footer-socials { display: flex; gap: 20px; }
-    .footer-socials a {
-      font-size: 12px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-      transition: color .2s, border-color .2s;
-    }
-    .footer-socials a:hover { color: var(--text); border-color: var(--text); }
-    .footer-copy {
-      font-size: 11px;
-      color: rgba(136,136,136,.5);
-      letter-spacing: .1em;
+      gap: 1rem;
+      width: min(320px, 90vw);
     }
 
-    /* ── МОБИЛЬНОЕ МЕНЮ ── */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 150;
-      background: var(--bg);
-      flex-direction: column;
-      justify-content: center;
+    .btn {
+      display: flex;
       align-items: center;
-      gap: 40px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 40px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-    .mobile-close {
-      position: absolute;
-      top: 24px; right: 32px;
-      background: none;
-      border: none;
+      justify-content: space-between;
+      padding: 1.35rem 1.75rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
       color: var(--text);
-      font-size: 28px;
-      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.15em;
+      border-radius: 3px;
+      transition: border-color 0.25s, background 0.25s, color 0.25s;
     }
 
-    /* ════════════════════════════════════════
-       ДЕСКТОП (≥ 768px)
-    ════════════════════════════════════════ */
-    @media (min-width: 768px) {
-      nav { padding: 24px 48px; }
-      .nav-burger { display: none !important; }
-
-      #hero { padding: 64px 80px; }
-      .hero-buttons { flex-direction: row; }
-      .btn-primary, .btn-outline { padding: 18px 48px; }
-
-      #about { padding: 120px 48px; }
-      .about-inner { grid-template-columns: 1fr 1fr; align-items: center; gap: 80px; }
-      .about-photo { max-width: none; }
-
-      .slide { flex: 0 0 calc(33.333% - 11px); }
-
-      #faq { padding: 120px 48px; }
-
-      #booking { padding: 120px 48px; }
-
-      footer {
-        padding: 64px 80px;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-        flex-wrap: wrap;
-      }
-
-      .section-header { padding: 0 48px; }
-      .slider-track { padding: 0 48px; }
+    .btn:hover {
+      border-color: var(--accent);
+      background: rgba(200, 160, 80, 0.08);
+      color: var(--accent);
     }
 
-    @media (min-width: 1200px) {
-      .slide { flex: 0 0 calc(25% - 12px); }
+    .btn .arrow {
+      font-size: 1rem;
+      opacity: 0.4;
+      transition: opacity 0.25s, transform 0.25s;
     }
 
-    @media (max-width: 767px) {
-      .nav-links { display: none; }
-      .nav-burger { display: flex; }
+    .btn:hover .arrow {
+      opacity: 1;
+      transform: translateX(5px);
+    }
+
+    .sep {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .sep-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .sep-dot {
+      font-size: 0.6rem;
+      color: var(--border);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1.5rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(136,136,136,0.4);
     }
   </style>
 </head>
 <body>
 
-<!-- НАВИГАЦИЯ -->
-<nav id="navbar">
-  <a href="#" class="nav-logo">ДУША</a>
-  <ul class="nav-links">
-    <li><a href="#about">О мастере</a></li>
-    <li><a href="#portfolio">Работы</a></li>
-    <li><a href="#faq">Вопросы</a></li>
-    <li><a href="#booking" class="btn-primary" style="padding: 10px 24px;">Записаться</a></li>
-  </ul>
-  <button class="nav-burger" aria-label="Меню" onclick="document.querySelector('.mobile-menu').classList.add('open')">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <p class="logo">ДУША</p>
+  <p class="tagline">Дмитрий Вселенский · Студия</p>
 
-<!-- МОБИЛЬНОЕ МЕНЮ -->
-<div class="mobile-menu">
-  <button class="mobile-close" onclick="this.closest('.mobile-menu').classList.remove('open')">✕</button>
-  <a href="#about"     onclick="this.closest('.mobile-menu').classList.remove('open')">О мастере</a>
-  <a href="#portfolio" onclick="this.closest('.mobile-menu').classList.remove('open')">Работы</a>
-  <a href="#faq"       onclick="this.closest('.mobile-menu').classList.remove('open')">Вопросы</a>
-  <a href="#booking"   onclick="this.closest('.mobile-menu').classList.remove('open')">Записаться</a>
-</div>
+  <div class="buttons">
+    <a href="tatu/" class="btn">
+      Татуировка
+      <span class="arrow">→</span>
+    </a>
 
-<!-- ГЕРОЙ -->
-<!-- Чтобы добавить фото: style="background-image: url('images/hero.jpg')" -->
-<section id="hero">
-  <div class="hero-content">
-    <h1 class="hero-title">ТАТУ</h1>
-    <p class="hero-sub">С ДУШОЙ И СМЫСЛОМ</p>
-    <div class="hero-buttons">
-      <a href="#booking" class="btn-primary">Записаться на консультацию</a>
-      <a href="#portfolio" class="btn-outline">Смотреть работы</a>
+    <div class="sep">
+      <span class="sep-line"></span>
+      <span class="sep-dot">·</span>
+      <span class="sep-line"></span>
     </div>
+
+    <a href="massage/" class="btn">
+      Массаж
+      <span class="arrow">→</span>
+    </a>
   </div>
-</section>
 
-<!-- О МАСТЕРЕ -->
-<section id="about">
-  <div class="about-inner">
-    <div class="about-text">
-      <div class="about-name">
-        <span>Мастер</span>
-        Вселенский<br>Дмитрий
-      </div>
-      <p class="about-desc">
-        Работаю в разных стилях — от минимализма и надписей до абстрактных работ.<br><br>
-        Помогаю с идеей, эскизом и тем, как татуировка будет смотреться на теле.
-        Эскиз создаётся индивидуально под человека и анатомию.
-      </p>
-      <div class="about-stats">
-        <div>
-          <div class="stat-num">10+</div>
-          <div class="stat-label">лет опыта</div>
-        </div>
-        <div>
-          <div class="stat-num">∞</div>
-          <div class="stat-label">уникальных работ</div>
-        </div>
-      </div>
-    </div>
-    <!-- Замени на своё фото: <img src="images/dmitry.jpg" alt="Дмитрий"> -->
-    <div class="about-photo">
-      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#252525;color:#333;font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.2em;">ФОТО</div>
-    </div>
-  </div>
-</section>
-
-<!-- РАБОТЫ -->
-<section id="portfolio">
-  <div class="section-header">
-    <h2 class="section-title">Работы</h2>
-    <p class="section-sub">Листай вправо</p>
-  </div>
-  <div class="slider-wrap">
-    <div class="slider-track" id="slider">
-      <!-- Замени placeholder'ы на <img src="images/work-N.jpg"> -->
-      <div class="slide"><div class="slide-placeholder">01</div></div>
-      <div class="slide"><div class="slide-placeholder">02</div></div>
-      <div class="slide"><div class="slide-placeholder">03</div></div>
-      <div class="slide"><div class="slide-placeholder">04</div></div>
-      <div class="slide"><div class="slide-placeholder">05</div></div>
-      <div class="slide"><div class="slide-placeholder">06</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="section-header" style="padding: 0;">
-    <h2 class="section-title">Частые вопросы</h2>
-  </div>
-  <div class="faq-list">
-
-    <div class="faq-item">
-      <button class="faq-q">
-        Больно ли делать тату?
-        <span class="faq-icon"></span>
-      </button>
-      <div class="faq-a">
-        Всё зависит от места, размера работы и вашего болевого порога.
-        Где-то ощущения почти медитативные, а где-то — «ну да, жизнь чувствуется».
-        Но в большинстве случаев это гораздо терпимее, чем люди представляют перед первым сеансом.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        Как подготовиться к сеансу?
-        <span class="faq-icon"></span>
-      </button>
-      <div class="faq-a">
-        Нормально выспаться, поесть перед сеансом и не пить алкоголь минимум сутки.
-        Кожа и организм скажут спасибо, а тату заживёт спокойнее.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        Можно ли прийти со своей идеей или референсом?
-        <span class="faq-icon"></span>
-      </button>
-      <div class="faq-a">
-        Да. Можно прийти даже с одной фразой, настроением, песней или странной картинкой из заметок 2023 года.
-        Разберём идею и адаптируем её под тело, чтобы татуировка смотрелась органично.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        Делаете ли вы эскизы с нуля?
-        <span class="faq-icon"></span>
-      </button>
-      <div class="faq-a">
-        Да. Эскиз создаётся индивидуально под человека, анатомию и саму идею.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        Можно ли перекрыть старую тату?
-        <span class="faq-icon"></span>
-      </button>
-      <div class="faq-a">
-        В большинстве случаев — да. Но всё зависит от плотности старой работы и желаемого эскиза для перекрытия.
-        Лучше прислать фото заранее — так будет понятнее, что реально сделать.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        Есть ли противопоказания?
-        <span class="faq-icon"></span>
-      </button>
-      <div class="faq-a">
-        Да. Некоторые кожные заболевания, плохое самочувствие, температура, беременность,
-        проблемы со свёртываемостью крови могут быть ограничением для сеанса.
-        Если есть сомнения — лучше обсудить заранее.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q">
-        Сколько стоит татуировка?
-        <span class="faq-icon"></span>
-      </button>
-      <div class="faq-a">
-        Стоимость зависит от размера, сложности, места нанесения и времени работы.
-        Точную цену можно понять после обсуждения идеи.
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ЗАПИСЬ -->
-<section id="booking">
-  <h2 class="booking-title">Готов к идее?<br>Давай обсудим.</h2>
-  <p class="booking-sub">Выбери удобное время — займёт пару минут.</p>
-  <a href="https://dikidi.ru/2070813" target="_blank" class="btn-primary">Записаться онлайн</a>
-</section>
-
-<!-- ФУТЕР -->
-<footer>
-  <div>
-    <div class="footer-logo">
-      ДУША
-      <span>ТАТУ СТУДИЯ</span>
-    </div>
-  </div>
-  <div class="footer-socials">
-    <a href="https://t.me/vselenskiy_d" target="_blank">Telegram</a>
-    <a href="https://instagram.com/vselenskiy.d" target="_blank">Instagram</a>
-  </div>
-  <div class="footer-copy">© 2024 Дмитрий Вселенский</div>
-</footer>
-
-<script>
-  // Навигация — добавляем фон при скролле
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  // FAQ аккордеон
-  document.querySelectorAll('.faq-q').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.parentElement;
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
-  });
-</script>
+  <footer>душа-студия.рф</footer>
 
 </body>
 </html>
